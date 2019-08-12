@@ -17,7 +17,7 @@ namespace ProyectoEstructuras2
     public partial class Form1 : Form
     {
         GMarkerGoogle marker;
-        GMapOverlay markerOvelay;
+        GMapOverlay markerOverlay;
 
         double InitialLat = 10.0000000;
         double InitialLng = -84.0000000;
@@ -37,6 +37,18 @@ namespace ProyectoEstructuras2
             gMapControl1.MaxZoom = 24;
             gMapControl1.Zoom = 7;
             gMapControl1.AutoScroll = true;
+
+            //Marcador
+            markerOverlay = new GMapOverlay("Marcador Inicial");
+            marker = new GMarkerGoogle(new PointLatLng(InitialLat, InitialLng), GMarkerGoogleType.green);
+            markerOverlay.Markers.Add(marker); //Se agrega marcador al mapa
+
+            //tooltip de texto a los marcadores
+            marker.ToolTipMode = MarkerTooltipMode.Always;
+            marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", InitialLat, InitialLng);
+
+            //Se agrega el mapa y el marcador al map controller
+            gMapControl1.Overlays.Add(markerOverlay);
         }
     }
 }

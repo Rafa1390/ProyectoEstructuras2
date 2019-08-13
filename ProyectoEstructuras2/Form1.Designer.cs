@@ -34,6 +34,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.btnRecorrer = new System.Windows.Forms.Button();
+            this.txtLatitud = new System.Windows.Forms.TextBox();
+            this.txtLongitud = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -61,6 +66,7 @@
             this.gMapControl1.Size = new System.Drawing.Size(829, 482);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
+            this.gMapControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GMapControl1_MouseDoubleClick);
             // 
             // txtUbicacion
             // 
@@ -108,11 +114,57 @@
             this.btnRecorrer.Text = "Recorrer";
             this.btnRecorrer.UseVisualStyleBackColor = true;
             // 
+            // txtLatitud
+            // 
+            this.txtLatitud.Location = new System.Drawing.Point(866, 291);
+            this.txtLatitud.Name = "txtLatitud";
+            this.txtLatitud.Size = new System.Drawing.Size(172, 20);
+            this.txtLatitud.TabIndex = 6;
+            // 
+            // txtLongitud
+            // 
+            this.txtLongitud.Location = new System.Drawing.Point(866, 349);
+            this.txtLongitud.Name = "txtLongitud";
+            this.txtLongitud.Size = new System.Drawing.Size(171, 20);
+            this.txtLongitud.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(848, 225);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 26);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Esta sección es provisional, \r\ndespues se elimina";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(863, 264);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Latitud";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(863, 324);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Longitud";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 506);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtLongitud);
+            this.Controls.Add(this.txtLatitud);
             this.Controls.Add(this.btnRecorrer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDestino);
@@ -135,6 +187,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDestino;
         private System.Windows.Forms.Button btnRecorrer;
+        private System.Windows.Forms.TextBox txtLatitud;
+        private System.Windows.Forms.TextBox txtLongitud;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

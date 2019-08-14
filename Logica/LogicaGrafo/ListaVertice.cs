@@ -1,4 +1,6 @@
-﻿namespace Logica.LogicaGrafo
+﻿using System.Collections.Generic;
+
+namespace Logica.LogicaGrafo
 {
     public class ListaVertice
     {
@@ -61,7 +63,7 @@
         /// Indica si la lista esta vacia.
         /// </summary>
         /// <returns></returns>
-        public bool EsVacio()
+        private bool EsVacio()
         {
             var esVacio = false;
 
@@ -71,6 +73,24 @@
             }
 
             return esVacio;
+        }
+
+        /// <summary>
+        /// Es responsable de retornar una lista de vertices.
+        /// </summary>
+        /// <returns></returns>
+        public List<Vertice> ToList()
+        {
+            var lista = new List<Vertice>();
+            var aux = Cabeza;
+
+            while(aux != null)
+            {
+                lista.Add(aux);
+                aux = aux.Siguiente;
+            }
+
+            return lista;
         }
     }
 }

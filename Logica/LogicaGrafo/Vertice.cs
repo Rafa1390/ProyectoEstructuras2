@@ -3,8 +3,8 @@
     public class Vertice
     {
         public string Nombre { get; set; }
-        public decimal Latitud { get; set; }
-        public decimal Longitud { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
         public ListaArco Arcos { get; set; }
         public Vertice Siguiente { get; set; }
 
@@ -13,7 +13,7 @@
 
         }
 
-        public Vertice(string nNombre, decimal nLat, decimal nLong)
+        public Vertice(string nNombre, double nLat, double nLong)
         {
             Nombre = nNombre;
             Latitud = nLat;

@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using Logica.ControladorGrafo;
 
 namespace ProyectoEstructuras2
 {
     public partial class Form1 : Form
     {
-        GMarkerGoogle marker;
-        GMapOverlay markerOverlay;
+        private ControladorGrafo GestorGrafo;
+        private GMarkerGoogle marker;
+        private GMapOverlay markerOverlay;
 
-        double InitialLat = 10.0000000;
-        double InitialLng = -84.0000000;
+        private readonly double InitialLat = 10.0000000;
+        private readonly double InitialLng = -84.0000000;
 
         public Form1()
         {
+            GestorGrafo = new ControladorGrafo();
             InitializeComponent();
         }
 
@@ -38,8 +34,9 @@ namespace ProyectoEstructuras2
             gMapControl1.Zoom = 7;
             gMapControl1.AutoScroll = true;
 
-            //Marcador
-            markerOverlay = new GMapOverlay("Marcador Inicial");
+            CargarVertices();
+
+            ////Marcador
             marker = new GMarkerGoogle(new PointLatLng(InitialLat, InitialLng), GMarkerGoogleType.green);
             markerOverlay.Markers.Add(marker); //Se agrega marcador al mapa
 
@@ -62,6 +59,25 @@ namespace ProyectoEstructuras2
 
             marker.Position = new PointLatLng(lat, lng);
             marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
+        }
+
+        /// <summary>
+        /// Carga todos los vertices.
+        /// </summary>
+        private void CargarVertices()
+        {
+            markerOverlay = new GMapOverlay("Marcadores");
+            var vertices = GestorGrafo.ObtenerVertices();
+            
+            foreach(var obj in vertices)
+            {
+                var nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
+                var nMarker = new GMarkerGoogle(nPoint, GMarkerGoogleType.green_small);
+                markerOverlay.Markers.Add(nMarker);
+
+                nMarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                nMarker.ToolTipText = string.Format("Ubicación: \n Nombre: {0} \n Latitud: {1} \n Longitud: {2}", obj.Nombre, obj.Latitud, obj.Longitud);
+            }
         }
     }
 }

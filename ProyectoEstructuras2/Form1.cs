@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Collections;
 using Logica.LogicaHash;
 using Logica.LogicaGrafo;
+using System.Device.Location;
 
 namespace ProyectoEstructuras2
 {
@@ -53,13 +54,7 @@ namespace ProyectoEstructuras2
             //Se agrega el mapa y el marcador al map controller
             gMapControl1.Overlays.Add(markerOverlay);
 
-
-            // Manera de marcar una linea recta en el map. - Denilson
-            //GMapOverlay polyOverlay = new GMapOverlay("polygons");
-            //List<PointLatLng> points = new List<PointLatLng>();
-            //points.Add(new PointLatLng(9.25935778730997, -83.3367919921875));
-            //points.Add(new PointLatLng(9.85521608608867, -83.9328002929688));
-       
+    
             //GMapPolygon polygon = new GMapPolygon(points, "mypolygon");
             //polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
             //polygon.Stroke = new Pen(Color.Red, 1);
@@ -85,6 +80,35 @@ namespace ProyectoEstructuras2
         {
             marker.Position = new PointLatLng(lat, lng);
             marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
+        }
+
+        private string GetNearestLocationsFromVertice(Vertice vertice)
+        {
+            Vertice verticeCercano = null;
+            GeoCoordinate coordenadasPrimerVertice = new GeoCoordinate(vertice.Latitud, vertice.Longitud);
+            double lowestDistance = 9999999999;
+            var verticesList = GestorGrafo.ObtenerVertices();
+            foreach(Vertice vertice1 in verticesList)
+            {
+                Vertice temp = vertice1;
+                while (temp != null)
+                {
+                    if(temp.Nombre.ToLower()  != vertice.Nombre.ToLower())
+                    {
+                        GeoCoordinate c2 = new GeoCoordinate(temp.Latitud, temp.Longitud);
+                        double distanceInKm = coordenadasPrimerVertice.GetDistanceTo(c2) / 1000;
+                        if (distanceInKm < lowestDistance)
+                        {
+                            lowestDistance = distanceInKm;
+                            verticeCercano = temp;
+                        }
+                    }
+                    temp = temp.Siguiente;
+                }
+            }
+
+            return vertice.Nombre + " está a " + Math.Round(lowestDistance, 2).ToString() + " km de " + verticeCercano.Nombre + ".";
+
         }
 
         /// <summary>
@@ -207,7 +231,7 @@ namespace ProyectoEstructuras2
         private void Button1_Click(object sender, EventArgs e)
         {
             lblSearchOutput.Text = "";
-            string input_value = txtSearch.Text;
+            string input_value = txtSearch.Text.ToLower();
             if(input_value.Length > 0)
             {
                 HashingTable table = GestorGrafo.ObtenerHashTable();
@@ -215,7 +239,7 @@ namespace ProyectoEstructuras2
                 if(output != null)
                 {
                     Vertice vertice = (Vertice)output;
-                    lblSearchOutput.Text = "Las coordenadas de " + vertice.Nombre + " son:\n " + vertice.Latitud + ", " + vertice.Longitud + ". ";
+                    lblSearchOutput.Text = "Las coordenadas de " + vertice.Nombre + " son:\n " + vertice.Latitud + ", " + vertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(vertice);
                     SetLocationOnMap(vertice.Latitud, vertice.Longitud);
                 }
                 else

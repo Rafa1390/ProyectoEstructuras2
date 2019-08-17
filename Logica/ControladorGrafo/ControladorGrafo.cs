@@ -28,104 +28,109 @@ namespace Logica.ControladorGrafo
         private void InicializarListaVertice()
         {
             //1
-            var nVer1 = new Vertice { Nombre = "Provincia San José, San Pedro, 11905 Costa Rica", Latitud = 9.2794686, Longitud = -83.5499635 };
+            var nVer1 = new Vertice { Nombre = "Universidad Nacional", Latitud = 9.999962, Longitud = -84.111398 };
             Vertices.Insertar(nVer1);
 
             //2
-            nVer1 = new Vertice { Nombre = "Cantón Moravia, Costa Rica", Longitud = -84.0094218, Latitud = 10.0139444 };
+            nVer1 = new Vertice { Nombre = "El Fortín", Latitud = 10.000427, Longitud = -84.117063 };
             Vertices.Insertar(nVer1);
 
+
             //3
-            nVer1 = new Vertice { Nombre = "Cantón Curridabat, Costa Rica", Latitud = 9.9251453, Longitud= -84.0317621 };
+            nVer1 = new Vertice { Nombre = "Aeropuerto Internacional Juan Santamaría", Latitud = 9.998766, Longitud = -84.204073 };
             Vertices.Insertar(nVer1);
 
             //4
-            nVer1 = new Vertice { Nombre = "Cantón Santa Ana, Costa Rica", Latitud = 9.9184374, Longitud = -84.1915718 };
+            nVer1 = new Vertice { Nombre = "zoo Ave", Latitud = 10.012480, Longitud = -84.275422 };
             Vertices.Insertar(nVer1);
 
             //5
-            nVer1 = new Vertice { Nombre = "Cantón Atenas, Costa Rica", Latitud = 9.9795178, Longitud = -84.3991733 };
+            nVer1 = new Vertice { Nombre = "San Antonio de Belen", Latitud = 9.978756, Longitud = -84.204073 };
             Vertices.Insertar(nVer1);
 
             //6
-            nVer1 = new Vertice { Nombre = "Cantón Grecia, Costa Rica", Latitud = 10.092686, Longitud = -84.2990071 };
+            nVer1 = new Vertice { Nombre = "Parque de diversiones", Latitud = 9.961281, Longitud = -84.128052 };
             Vertices.Insertar(nVer1);
+
 
             //7
-            nVer1 = new Vertice { Nombre = "Cantón San Ramón, Costa Rica", Latitud = 10.218161, Longitud = -84.5720736 };
+            nVer1 = new Vertice { Nombre = "Hospital México", Latitud = 9.951550, Longitud = -84.115071 };
             Vertices.Insertar(nVer1);
 
+
             //8
-            nVer1 = new Vertice { Nombre = "Cantón Barva, Costa Rica", Latitud = 10.0763486, Longitud = -84.109221 };
+            nVer1 = new Vertice { Nombre = "AyA", Latitud = 9.937973, Longitud = -84.119519 };
             Vertices.Insertar(nVer1);
 
             //9
-            nVer1 = new Vertice { Nombre = "Cantón San José, Costa Rica", Latitud = 9.9359219, Longitud = -84.0919664 };
+            nVer1 = new Vertice { Nombre = "Estadio Nacional", Latitud = 9.937014, Longitud = -84.107783 };
             Vertices.Insertar(nVer1);
 
             //10
-            nVer1 = new Vertice { Nombre = "Cantón Heredia, Costa Rica", Latitud = 10.1773322, Longitud = -84.0590094 };
+            nVer1 = new Vertice { Nombre = "Parque Central", Latitud = 9.933204, Longitud = -84.079662 };
             Vertices.Insertar(nVer1);
 
             //11
-            nVer1 = new Vertice { Nombre = "Cantón San Rafael, Costa Rica", Latitud = 10.0580387, Longitud = -84.0712921 };
+            nVer1 = new Vertice { Nombre = "Catedral Metropolitana", Latitud = 9.932782, Longitud = -84.078771 };
             Vertices.Insertar(nVer1);
 
             //12
-            nVer1 = new Vertice { Nombre = "Cantón Cartago, Costa Rica", Latitud = 9.7889864, Longitud = -83.9047616 };
+            nVer1 = new Vertice { Nombre = "Teatro Nacional", Latitud = 9.933310, Longitud = -84.077195 };
             Vertices.Insertar(nVer1);
 
             //13
-            nVer1 = new Vertice { Nombre = "Cantón Turrialba, Costa Rica", Latitud = 9.7811058, Longitud = -83.498266 };
+            nVer1 = new Vertice { Nombre = "Estacion de trenes al Pacifico", Latitud = 9.925545, Longitud = -84.080619 };
             Vertices.Insertar(nVer1);
 
             //14
-            nVer1 = new Vertice { Nombre = "Cantón Oreamuno, Costa Rica", Latitud = 9.9974653, Longitud = -83.8457032 };
+            nVer1 = new Vertice { Nombre = "Museo Nacional de Costa Rica", Latitud = 9.933506, Longitud = -84.071677 };
             Vertices.Insertar(nVer1);
 
             //15
-            nVer1 = new Vertice { Nombre = "Cantón Zarcero, Costa Rica", Latitud = 10.2185909, Longitud = -84.4066445 };
+            nVer1 = new Vertice { Nombre = "Parque Morazán", Latitud = 9.935684, Longitud = -84.075394 };
             Vertices.Insertar(nVer1);
 
             //16
-            nVer1 = new Vertice { Nombre = "Cantón Liberia, Costa Rica", Latitud = 10.6927375, Longitud = -85.4987893 };
+            nVer1 = new Vertice { Nombre = "Hospital Calderón Guardia", Latitud = 9.937001, Longitud = -84.069439 };
+            Vertices.Insertar(nVer1);
+
+            //17
+            nVer1 = new Vertice { Nombre = "Estación del Ferrocarril al Atlántico", Latitud = 9.934748, Longitud = -84.068853 };
+            Vertices.Insertar(nVer1);
+
+            //18
+            nVer1 = new Vertice { Nombre = "Lupulus Beer Shop", Latitud = 9.935899, Longitud = -84.062038 };
             Vertices.Insertar(nVer1);
 
             //19
-            nVer1 = new Vertice { Nombre = "Cantón Nicoya, Costa Rica", Latitud = 10.1034154, Longitud = -85.4153082 };
+            nVer1 = new Vertice { Nombre = "Parque de la paz", Latitud = 9.913378, Longitud = -84.072238 };
             Vertices.Insertar(nVer1);
 
             //20
-            nVer1 = new Vertice { Nombre = "Cantón Buenos Aires, Costa Rica", Latitud = 9.0825136, Longitud = -83.2465025 };
+            nVer1 = new Vertice { Nombre = "Mall San Pedro", Latitud = 9.933496, Longitud = -84.056588 };
             Vertices.Insertar(nVer1);
 
             //21
-            nVer1 = new Vertice { Nombre = "Provincia Limón, Cariari, 70205 Costa Rica", Latitud = 10.3628805, Longitud = -83.7354423 };
+            nVer1 = new Vertice { Nombre = "Hospital la Catolica", Latitud = 9.950094, Longitud = -84.058953 };
+            
             Vertices.Insertar(nVer1);
 
             //22
-            nVer1 = new Vertice { Nombre = "Provincia Limón, Guápiles, 70201 Costa Rica", Latitud = 10.2147844, Longitud = -83.786999 };
+            nVer1 = new Vertice { Nombre = "Universidad de Costa Rica", Latitud = 9.938262, Longitud = -84.051131 };
             Vertices.Insertar(nVer1);
 
             //23
-            nVer1 = new Vertice { Nombre = "Provincia Puntarenas, Ciudad Cortés, 60501 Costa Rica", Latitud = 8.9630807, Longitud = -83.5238182 };
+            nVer1 = new Vertice { Nombre = "Multiplaza Curridabat", Latitud = 9.918141, Longitud = -84.046839 };
             Vertices.Insertar(nVer1);
 
             //24
-            nVer1 = new Vertice { Nombre = "Zapotal, Cantón Carrillo, Costa Rica", Latitud = 10.505216682025221, Longitud = -85.7698069806843 };
+            nVer1 = new Vertice { Nombre = "Universidad Cenfotec", Latitud = 9.932410, Longitud = -84.031022 };
             Vertices.Insertar(nVer1);
 
             //25
-            nVer1 = new Vertice { Nombre = "Provincia Puntarenas, Mal País, 60111 Costa Rica", Latitud = 9.60228342770722, Longitud = -85.11706568145269 };
+            nVer1 = new Vertice { Nombre = "TEC", Latitud = 9.856760, Longitud = -83.911665 };
             Vertices.Insertar(nVer1);
 
-            //26
-            nVer1 = new Vertice { Nombre = "Provincia Puntarenas, Potrero Grande, 60303 Costa Rica", Latitud = 9.311472073463491, Longitud = -83.16131053758512 };
-            Vertices.Insertar(nVer1);
-
-            //27
-            nVer1 = new Vertice { Nombre = "Calle Granados, Provincia Cartago, Cervantes, 30602 Costa Rica", Latitud = 9.897569949066408, Longitud = -83.82193442906934 };
-            Vertices.Insertar(nVer1);
         }
     }
 }

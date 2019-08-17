@@ -1,4 +1,6 @@
 ﻿using Logica.LogicaGrafo;
+using Logica.LogicaHash;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Logica.ControladorGrafo
@@ -20,6 +22,23 @@ namespace Logica.ControladorGrafo
         public List<Vertice> ObtenerVertices()
         {
             return Vertices.ToList();
+        }
+        public HashingTable ObtenerHashTable()
+        {
+            HashingTable hashtable = new HashingTable();
+            List<Vertice> listaTemp = ObtenerVertices();
+            foreach(var vertice in listaTemp)
+            {
+                if (!hashtable.ContainsKey(vertice.Nombre.ToLower()))
+                {
+                    hashtable.Add(vertice.Nombre.ToLower(), vertice);
+                }
+                else
+                {
+                    throw new System.Exception("HashTable contains duplicated key.");
+                }
+            }
+            return hashtable;
         }
 
         /// <summary>

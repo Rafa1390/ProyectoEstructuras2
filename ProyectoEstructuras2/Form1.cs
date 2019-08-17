@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
@@ -7,6 +7,9 @@ using GMap.NET.WindowsForms.Markers;
 using Logica.ControladorGrafo;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Collections;
+using Logica.LogicaHash;
+using Logica.LogicaGrafo;
 
 namespace ProyectoEstructuras2
 {
@@ -49,6 +52,20 @@ namespace ProyectoEstructuras2
 
             //Se agrega el mapa y el marcador al map controller
             gMapControl1.Overlays.Add(markerOverlay);
+
+
+            // Manera de marcar una linea recta en el map. - Denilson
+            //GMapOverlay polyOverlay = new GMapOverlay("polygons");
+            //List<PointLatLng> points = new List<PointLatLng>();
+            //points.Add(new PointLatLng(9.25935778730997, -83.3367919921875));
+            //points.Add(new PointLatLng(9.85521608608867, -83.9328002929688));
+       
+            //GMapPolygon polygon = new GMapPolygon(points, "mypolygon");
+            //polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+            //polygon.Stroke = new Pen(Color.Red, 1);
+            //polyOverlay.Polygons.Add(polygon);
+            //gMapControl1.Overlays.Add(polyOverlay);
+
         }
 
         //Provisional -> Solo para obtener ubicaciones en el mapa, se puede borrar o reutilizar luego
@@ -60,6 +77,12 @@ namespace ProyectoEstructuras2
             txtLatitud.Text = lat.ToString();
             txtLongitud.Text = lng.ToString();
 
+            marker.Position = new PointLatLng(lat, lng);
+            marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
+        }
+
+        private void SetLocationOnMap(double lat, double lng)
+        {
             marker.Position = new PointLatLng(lat, lng);
             marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
         }
@@ -157,6 +180,8 @@ namespace ProyectoEstructuras2
             cblDestino.Show();
         }
 
+
+
         /// <summary>
         /// Carga el nombre de las rutas en el dropdown de destino 
         /// </summary>
@@ -173,5 +198,37 @@ namespace ProyectoEstructuras2
         {
             gMapControl1.Overlays.Clear();
         }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            lblSearchOutput.Text = "";
+            string input_value = txtSearch.Text;
+            if(input_value.Length > 0)
+            {
+                HashingTable table = GestorGrafo.ObtenerHashTable();
+                var output = table.Get(input_value);
+                if(output != null)
+                {
+                    Vertice vertice = (Vertice)output;
+                    lblSearchOutput.Text = "Las coordenadas de " + vertice.Nombre + " son:\n " + vertice.Latitud + ", " + vertice.Longitud + ". ";
+                    SetLocationOnMap(vertice.Latitud, vertice.Longitud);
+                }
+                else
+                {
+                    lblSearchOutput.Text = "Su busqueda no tuvo resultado.";
+                }
+            }
+            else
+            {
+                lblSearchOutput.Text = "Ingrese un valor.";
+            }
+            txtSearch.Text = "";
+        }
+
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="LogicaGrafo\ListaArco.cs" />
     <Compile Include="LogicaGrafo\ListaVertice.cs" />
     <Compile Include="LogicaGrafo\Vertice.cs" />
+    <Compile Include="LogicaHash\HashingTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

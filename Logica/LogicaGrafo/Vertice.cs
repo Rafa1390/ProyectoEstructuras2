@@ -19,5 +19,6 @@
             Latitud = nLat;
             Longitud = nLong;
         }
+
     }
 }

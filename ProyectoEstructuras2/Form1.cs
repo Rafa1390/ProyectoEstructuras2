@@ -29,22 +29,20 @@ namespace ProyectoEstructuras2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //GoogleMapProvider.Instance.ApiKey = "AIzaSyDwVE7lHMg_oapJHvFt3wZ1Fz6SaPK46LE";
-            //GMaps.Instance.Mode = AccessMode.ServerAndCache;
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
             gMapControl1.MapProvider = GMapProviders.GoogleMap;
             gMapControl1.Position = new PointLatLng(InitialLat, InitialLng);
             gMapControl1.MinZoom = 0;
             gMapControl1.MaxZoom = 24;
-            gMapControl1.Zoom = 9;
+            gMapControl1.Zoom = 12;
             gMapControl1.AutoScroll = true;
 
             CargarVertices();
             CbOrigin_Charge();
             CblDestino_Charge();
             ////Marcador
-            marker = new GMarkerGoogle(new PointLatLng(InitialLat, InitialLng), GMarkerGoogleType.green);
+            marker = new GMarkerGoogle(new PointLatLng(), GMarkerGoogleType.green_small);
             markerOverlay.Markers.Add(marker); //Se agrega marcador al mapa
 
             //tooltip de texto a los marcadores
@@ -53,14 +51,6 @@ namespace ProyectoEstructuras2
 
             //Se agrega el mapa y el marcador al map controller
             gMapControl1.Overlays.Add(markerOverlay);
-
-    
-            //GMapPolygon polygon = new GMapPolygon(points, "mypolygon");
-            //polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-            //polygon.Stroke = new Pen(Color.Red, 1);
-            //polyOverlay.Polygons.Add(polygon);
-            //gMapControl1.Overlays.Add(polyOverlay);
-
         }
 
         //Provisional -> Solo para obtener ubicaciones en el mapa, se puede borrar o reutilizar luego
@@ -68,10 +58,6 @@ namespace ProyectoEstructuras2
         {
             double lat = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lat;
             double lng = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lng;
-
-            txtLatitud.Text = lat.ToString();
-            txtLongitud.Text = lng.ToString();
-
             marker.Position = new PointLatLng(lat, lng);
             marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
         }
@@ -126,7 +112,7 @@ namespace ProyectoEstructuras2
                 markerOverlay.Markers.Add(nMarker);
 
                 nMarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-                nMarker.ToolTipText = string.Format("Ubicación: \n Nombre: {0} \n Latitud: {1} \n Longitud: {2}", obj.Nombre, obj.Latitud, obj.Longitud);
+                nMarker.ToolTipText = string.Format(obj.Nombre);
             }
         }
 
@@ -151,7 +137,6 @@ namespace ProyectoEstructuras2
                 direcciones.Add(nPoint);
             }
             direcciones.AddRange(otrasRutas);
-            //TrazarRuta(direcciones);
             GMapRoute r = new GMapRoute(direcciones, "routes");
             GMapOverlay routesOverlay = new GMapOverlay("routes");
             routesOverlay.Routes.Add(r);

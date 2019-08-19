@@ -290,15 +290,21 @@ namespace ProyectoEstructuras2
 
         private void Ruta(List<Vertice> list)
         {
+            var destino = new PointLatLng();
             foreach (var obj in list)
             {
                 var origen = new PointLatLng(obj.Latitud, obj.Longitud);
 
-                while (obj.Arcos.Cabeza != null)
+                if(destino == null)
                 {
-                    var destino = new PointLatLng(obj.Arcos.Cabeza.VerticeDestino.Latitud, obj.Arcos.Cabeza.VerticeDestino.Longitud);
-                    obj.Arcos.Cabeza = obj.Arcos.Cabeza.Siguiente;
+                    destino.Equals(origen);
+                }
+                else
+                {
                     TrazarGrafo(origen, destino);
+                    destino.Equals(origen);
+                }
+                  
                 }
 
             }

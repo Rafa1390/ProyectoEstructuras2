@@ -131,11 +131,13 @@ namespace ProyectoEstructuras2
             direcciones = new List<PointLatLng>();
             otrasRutas = new List<PointLatLng>(AgregarRutas());
             var vertices = GestorGrafo.ObtenerVertices();
+
             foreach (var obj in vertices)
             {
                 var nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
                 direcciones.Add(nPoint);
             }
+
             direcciones.AddRange(otrasRutas);
             GMapRoute r = new GMapRoute(direcciones, "routes");
             GMapOverlay routesOverlay = new GMapOverlay("routes");

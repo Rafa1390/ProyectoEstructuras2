@@ -1,10 +1,15 @@
-﻿using Logica.LogicaGrafo;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using Logica.LogicaGrafo;
 using Logica.LogicaHash;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace Logica.ControladorGrafo
 {
+    /// <summary>
+    /// Esta clase se encarga de la comunicacion entre la UI y la clase ListaVertice.
+    /// </summary>
     public class ControladorGrafo
     {
         public static ListaVertice Vertices;
@@ -23,6 +28,7 @@ namespace Logica.ControladorGrafo
         {
             return Vertices.ToList();
         }
+
         public HashingTable ObtenerHashTable()
         {
             HashingTable hashtable = new HashingTable();
@@ -56,7 +62,6 @@ namespace Logica.ControladorGrafo
             nVer1 = new Vertice { Nombre = "El Fortín", Latitud = 10.000427, Longitud = -84.117063 };
             Vertices.Insertar(nVer1);
 
-
             //3
             nVer1 = new Vertice { Nombre = "Aeropuerto Internacional Juan Santamaría", Latitud = 9.998766, Longitud = -84.204073 };
             Vertices.Insertar(nVer1);
@@ -73,11 +78,9 @@ namespace Logica.ControladorGrafo
             nVer1 = new Vertice { Nombre = "Parque de diversiones", Latitud = 9.961281, Longitud = -84.128052 };
             Vertices.Insertar(nVer1);
 
-
             //7
             nVer1 = new Vertice { Nombre = "Hospital México", Latitud = 9.951550, Longitud = -84.115071 };
             Vertices.Insertar(nVer1);
-
 
             //8
             nVer1 = new Vertice { Nombre = "AyA", Latitud = 9.937973, Longitud = -84.119519 };
@@ -152,6 +155,24 @@ namespace Logica.ControladorGrafo
             nVer1 = new Vertice { Nombre = "TEC", Latitud = 9.856760, Longitud = -83.911665 };
             Vertices.Insertar(nVer1);
 
+        }
+
+        private void InitListaArcos()
+        {
+            PointLatLng startPoint;
+            PointLatLng endPoint;
+            var listVertices = ObtenerVertices();
+            var startVertice = listVertices[0];
+            var endVertice = listVertices[1];
+        }
+
+        private double CalculateKilometers(double startPointLat, double startPointLng, double endPointLat, double endPointLng)
+        {
+            var startPoint = new PointLatLng { Lat = startPointLat, Lng = startPointLng };
+            var endPoint = new PointLatLng { Lat = endPointLat, Lng = endPointLng };
+            var route = GoogleMapProvider.Instance.GetRoute(startPoint, endPoint, false, false, 14);
+            var km = route.Distance;
+            return km;
         }
     }
 }

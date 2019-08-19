@@ -304,9 +304,6 @@ namespace ProyectoEstructuras2
                     TrazarGrafo(origen, destino);
                     destino.Equals(origen);
                 }
-                  
-                }
-
             }
         }
     }

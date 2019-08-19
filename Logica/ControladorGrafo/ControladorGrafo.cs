@@ -59,8 +59,6 @@ namespace Logica.ControladorGrafo
             return hashtable;
         }
 
-
-
         /// <summary>
         /// Es responsable de inicializar los vertices a utilizar.
         /// </summary>

@@ -111,25 +111,43 @@ namespace ProyectoEstructuras2
         }
 
         /// <summary>
-        /// Obtiene la ruta del grafo
+        /// Obtiene los arcos para trazar la ruta del grafo
         /// </summary>
-        public void ObtenerRuta()
+        private void ObtenerRuta()
         {
-            List<PointLatLng> direcciones;
-            direcciones = new List<PointLatLng>();
             var vertices = GestorGrafo.ObtenerVertices();
 
             foreach (var obj in vertices)
             {
-                var nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
-                direcciones.Add(nPoint);
+                var origen = new PointLatLng(obj.Latitud, obj.Longitud);
+
+                while (obj.Arcos.Cabeza != null)
+                {
+                    var destino = new PointLatLng(obj.Arcos.Cabeza.VerticeDestino.Latitud, obj.Arcos.Cabeza.VerticeDestino.Longitud);
+                    obj.Arcos.Cabeza = obj.Arcos.Cabeza.Siguiente;
+                    TrazarGrafo(origen, destino);
+                }
+
             }
+
+        }
+
+        /// <summary>
+        /// Traza los arcos en el grafo
+        /// </summary>
+        private void TrazarGrafo(PointLatLng origen, PointLatLng destino)
+        {
+            List<PointLatLng> direcciones = new List<PointLatLng>();
+            direcciones.Add(origen);
+            direcciones.Add(destino);
+
             GMapRoute r = new GMapRoute(direcciones, "routes");
             GMapOverlay routesOverlay = new GMapOverlay("routes");
             routesOverlay.Routes.Add(r);
             gMapControl1.Overlays.Add(routesOverlay);
             r.Stroke.Width = 2;
             r.Stroke.Color = Color.Coral;
+
         }
 
         private void CblOrigen_SelectedIndexChanged(object sender, EventArgs e)

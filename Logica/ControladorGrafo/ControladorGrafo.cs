@@ -164,6 +164,11 @@ namespace Logica.ControladorGrafo
             var listVertices = ObtenerVertices();
             var startVertice = listVertices[0];
             var endVertice = listVertices[1];
+
+            //Ejemplo
+            //var km = CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            //var arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            //startVertice.Arcos.Insertar(arco);
         }
 
         private double CalculateKilometers(double startPointLat, double startPointLng, double endPointLat, double endPointLng)

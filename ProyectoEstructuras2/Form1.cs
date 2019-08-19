@@ -53,15 +53,6 @@ namespace ProyectoEstructuras2
             gMapControl1.Overlays.Add(markerOverlay);
         }
 
-        //Provisional -> Solo para obtener ubicaciones en el mapa, se puede borrar o reutilizar luego
-        private void GMapControl1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            double lat = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lat;
-            double lng = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lng;
-            marker.Position = new PointLatLng(lat, lng);
-            marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud: {1}", lat, lng);
-        }
-
         private void SetLocationOnMap(double lat, double lng)
         {
             marker.Position = new PointLatLng(lat, lng);

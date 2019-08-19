@@ -116,7 +116,6 @@ namespace ProyectoEstructuras2
         public void ObtenerRuta()
         {
             List<PointLatLng> direcciones;
-            List<PointLatLng> otrasRutas;
             direcciones = new List<PointLatLng>();
             var vertices = GestorGrafo.ObtenerVertices();
 

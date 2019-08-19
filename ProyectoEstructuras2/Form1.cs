@@ -4,7 +4,6 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using Logica.ControladorGrafo;
 using Logica.LogicaGrafo;
-using Logica.LogicaHash;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
@@ -182,29 +181,52 @@ namespace ProyectoEstructuras2
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            lblSearchOutput.Text = "";
-            string input_value = txtSearch.Text.ToLower();
-            if (input_value.Length > 0)
+            var key = cblOrigen.SelectedItem.ToString().ToLower();
+            string feedbackMessage;
+
+            if (!string.IsNullOrWhiteSpace(key))
             {
-                HashingTable table = GestorGrafo.ObtenerHashTable();
-                var output = table.Get(input_value);
-                if (output != null)
+                var nVertice = GestorGrafo.BuscarVertice(key);
+
+                if (nVertice != null)
                 {
-                    Vertice vertice = (Vertice)output;
-                    lblSearchOutput.Text = "Las coordenadas de " + vertice.Nombre + " son:\n " + vertice.Latitud + ", " + vertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(vertice);
-                    SetLocationOnMap(vertice.Latitud, vertice.Longitud);
+                    feedbackMessage = "Las coordenadas de " + nVertice.Nombre + " son:\n " + nVertice.Latitud + ", " + nVertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(nVertice);
+                    SetLocationOnMap(nVertice.Latitud, nVertice.Longitud);
                 }
                 else
                 {
-                    lblSearchOutput.Text = "Su busqueda no tuvo resultado.";
+                    feedbackMessage = "Su busqueda no tuvo resultado.";
                 }
             }
             else
             {
-                lblSearchOutput.Text = "Ingrese un valor.";
+                feedbackMessage = "Ingrese un valor.";
             }
-            txtSearch.Text = "";
+
+            MessageBox.Show(feedbackMessage, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void BtnVerUbicacionAdyacentes_Click(object sender, EventArgs e)
+        {
+            var startPointKey = cblOrigen.SelectedItem.ToString().ToLower();
+
+            if (!string.IsNullOrWhiteSpace(startPointKey))
+            {
+                var startPoint = GestorGrafo.BuscarVertice(startPointKey);
+
+                if (startPoint != null)
+                {
+                    MessageBox.Show(startPoint.Arcos.ToPrint(), "Puntos adyacentes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el vertice buscado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese la ubicacion origen", "Advertencia", MessageBoxButtons.OK);
+            }
+        }
     }
 }

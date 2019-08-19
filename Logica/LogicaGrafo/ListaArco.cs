@@ -1,4 +1,6 @@
-﻿namespace Logica.LogicaGrafo
+﻿using System.Text;
+
+namespace Logica.LogicaGrafo
 {
     public class ListaArco
     {
@@ -13,15 +15,17 @@
         {
             var insertado = false;
 
-            if(nArco != null)
+            if (nArco != null)
             {
+                insertado = true;
+
                 if (!EsVacio())
                 {
                     nArco.Siguiente = Cabeza;
                 }
 
                 Cabeza = nArco;
-                insertado = true;
+
             }
 
             return insertado;
@@ -32,7 +36,7 @@
             var aux = Cabeza;
             Arco encontrado = null;
 
-            while(aux != null)
+            while (aux != null)
             {
                 if (aux.VerticeDestino.Nombre.Equals(destino.Nombre))
                 {
@@ -50,12 +54,28 @@
         {
             var esVacio = false;
 
-            if(Cabeza == null)
+            if (Cabeza == null)
             {
                 esVacio = true;
             }
 
             return esVacio;
+        }
+
+        public string ToPrint()
+        {
+            var print = new StringBuilder();
+            var aux = Cabeza;
+            print.Append("Puntos adyacentes:\n");
+
+            while (aux != null)
+            {
+                print.Append("\nDestino: " + aux.VerticeDestino.Nombre);
+                print.Append("\nDistancia: " + aux.Kilometros);
+                aux = aux.Siguiente;
+            }
+
+            return print.ToString();
         }
     }
 }

@@ -29,6 +29,19 @@ namespace Logica.ControladorGrafo
             return Vertices.ToList();
         }
 
+        /// <summary>
+        /// Responsable de buscar un vertice por medio de la llave.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Vertice BuscarVertice(string key)
+        {
+            var hashTable = ObtenerHashTable();
+            var searched = hashTable.Get(key);
+            var nVertice = (Vertice)searched;
+            return nVertice;
+        }
+
         public HashingTable ObtenerHashTable()
         {
             HashingTable hashtable = new HashingTable();

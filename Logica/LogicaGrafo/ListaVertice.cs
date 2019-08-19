@@ -20,7 +20,7 @@ namespace Logica.LogicaGrafo
         {
             var insertado = false;
 
-            if(nVertice != null)
+            if (nVertice != null)
             {
                 insertado = true;
 
@@ -45,7 +45,7 @@ namespace Logica.LogicaGrafo
             var aux = Cabeza;
             Vertice encontrado = null;
 
-            while(aux != null)
+            while (aux != null)
             {
                 if (aux.Nombre.Equals(nNombre))
                 {
@@ -67,7 +67,7 @@ namespace Logica.LogicaGrafo
         {
             var esVacio = false;
 
-            if(Cabeza == null)
+            if (Cabeza == null)
             {
                 esVacio = true;
             }
@@ -84,7 +84,7 @@ namespace Logica.LogicaGrafo
             var lista = new List<Vertice>();
             var aux = Cabeza;
 
-            while(aux != null)
+            while (aux != null)
             {
                 lista.Add(aux);
                 aux = aux.Siguiente;

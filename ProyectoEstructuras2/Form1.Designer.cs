@@ -50,7 +50,8 @@
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(12, 12);
+            this.gMapControl1.Location = new System.Drawing.Point(18, 18);
+            this.gMapControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -64,17 +65,16 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(829, 463);
+            this.gMapControl1.Size = new System.Drawing.Size(1244, 712);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
             // btnTrazarGrafo
             // 
             this.btnTrazarGrafo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnTrazarGrafo.Location = new System.Drawing.Point(856, 18);
-            this.btnTrazarGrafo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTrazarGrafo.Location = new System.Drawing.Point(1284, 28);
             this.btnTrazarGrafo.Name = "btnTrazarGrafo";
-            this.btnTrazarGrafo.Size = new System.Drawing.Size(83, 29);
+            this.btnTrazarGrafo.Size = new System.Drawing.Size(124, 45);
             this.btnTrazarGrafo.TabIndex = 11;
             this.btnTrazarGrafo.Text = "Ver Grafo";
             this.btnTrazarGrafo.UseVisualStyleBackColor = true;
@@ -83,20 +83,18 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(853, 89);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(1280, 137);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(56, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Origen";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(853, 145);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(1280, 223);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.Size = new System.Drawing.Size(64, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Destino";
             // 
@@ -104,10 +102,9 @@
             // 
             this.cblOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cblOrigen.FormattingEnabled = true;
-            this.cblOrigen.Location = new System.Drawing.Point(856, 104);
-            this.cblOrigen.Margin = new System.Windows.Forms.Padding(2);
+            this.cblOrigen.Location = new System.Drawing.Point(1284, 160);
             this.cblOrigen.Name = "cblOrigen";
-            this.cblOrigen.Size = new System.Drawing.Size(181, 21);
+            this.cblOrigen.Size = new System.Drawing.Size(270, 28);
             this.cblOrigen.TabIndex = 15;
             this.cblOrigen.SelectedIndexChanged += new System.EventHandler(this.CblOrigen_SelectedIndexChanged);
             // 
@@ -115,20 +112,18 @@
             // 
             this.cblDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cblDestino.FormattingEnabled = true;
-            this.cblDestino.Location = new System.Drawing.Point(856, 160);
-            this.cblDestino.Margin = new System.Windows.Forms.Padding(2);
+            this.cblDestino.Location = new System.Drawing.Point(1284, 246);
             this.cblDestino.Name = "cblDestino";
-            this.cblDestino.Size = new System.Drawing.Size(179, 21);
+            this.cblDestino.Size = new System.Drawing.Size(266, 28);
             this.cblDestino.TabIndex = 16;
             this.cblDestino.SelectedIndexChanged += new System.EventHandler(this.CblDestino_SelectedIndexChanged);
             // 
             // btnIr
             // 
             this.btnIr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnIr.Location = new System.Drawing.Point(949, 18);
-            this.btnIr.Margin = new System.Windows.Forms.Padding(2);
+            this.btnIr.Location = new System.Drawing.Point(1424, 28);
             this.btnIr.Name = "btnIr";
-            this.btnIr.Size = new System.Drawing.Size(82, 30);
+            this.btnIr.Size = new System.Drawing.Size(123, 46);
             this.btnIr.TabIndex = 17;
             this.btnIr.Text = "Limpiar";
             this.btnIr.UseVisualStyleBackColor = true;
@@ -136,11 +131,11 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.button1.Location = new System.Drawing.Point(856, 212);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(1284, 326);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 40);
+            this.button1.Size = new System.Drawing.Size(272, 62);
             this.button1.TabIndex = 20;
             this.button1.Text = "Buscar ubicacion";
             this.button1.UseVisualStyleBackColor = true;
@@ -149,17 +144,19 @@
             // lblSearchOutput
             // 
             this.lblSearchOutput.AutoSize = true;
-            this.lblSearchOutput.Location = new System.Drawing.Point(848, 224);
+            this.lblSearchOutput.Location = new System.Drawing.Point(1272, 345);
+            this.lblSearchOutput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearchOutput.Name = "lblSearchOutput";
-            this.lblSearchOutput.Size = new System.Drawing.Size(0, 13);
+            this.lblSearchOutput.Size = new System.Drawing.Size(0, 20);
             this.lblSearchOutput.TabIndex = 21;
             // 
             // BtnVerUbicacionAdyacentes
             // 
             this.BtnVerUbicacionAdyacentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.BtnVerUbicacionAdyacentes.Location = new System.Drawing.Point(856, 267);
+            this.BtnVerUbicacionAdyacentes.Location = new System.Drawing.Point(1284, 411);
+            this.BtnVerUbicacionAdyacentes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnVerUbicacionAdyacentes.Name = "BtnVerUbicacionAdyacentes";
-            this.BtnVerUbicacionAdyacentes.Size = new System.Drawing.Size(181, 40);
+            this.BtnVerUbicacionAdyacentes.Size = new System.Drawing.Size(272, 62);
             this.BtnVerUbicacionAdyacentes.TabIndex = 22;
             this.BtnVerUbicacionAdyacentes.Text = "Ver ubicaciones adyacentes";
             this.BtnVerUbicacionAdyacentes.UseVisualStyleBackColor = true;
@@ -168,28 +165,31 @@
             // BtnRutaMinima
             // 
             this.BtnRutaMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.BtnRutaMinima.Location = new System.Drawing.Point(856, 326);
+            this.BtnRutaMinima.Location = new System.Drawing.Point(1284, 502);
+            this.BtnRutaMinima.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnRutaMinima.Name = "BtnRutaMinima";
-            this.BtnRutaMinima.Size = new System.Drawing.Size(181, 40);
+            this.BtnRutaMinima.Size = new System.Drawing.Size(272, 62);
             this.BtnRutaMinima.TabIndex = 23;
             this.BtnRutaMinima.Text = "Ver ruta minima";
             this.BtnRutaMinima.UseVisualStyleBackColor = true;
+            this.BtnRutaMinima.Click += new System.EventHandler(this.BtnRutaMinima_Click);
             // 
             // BtnRutaMaxima
             // 
             this.BtnRutaMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.BtnRutaMaxima.Location = new System.Drawing.Point(856, 384);
+            this.BtnRutaMaxima.Location = new System.Drawing.Point(1284, 591);
+            this.BtnRutaMaxima.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnRutaMaxima.Name = "BtnRutaMaxima";
-            this.BtnRutaMaxima.Size = new System.Drawing.Size(181, 40);
+            this.BtnRutaMaxima.Size = new System.Drawing.Size(272, 62);
             this.BtnRutaMaxima.TabIndex = 24;
             this.BtnRutaMaxima.Text = "Ver ruta maxima";
             this.BtnRutaMaxima.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 487);
+            this.ClientSize = new System.Drawing.Size(1576, 749);
             this.Controls.Add(this.BtnRutaMaxima);
             this.Controls.Add(this.BtnRutaMinima);
             this.Controls.Add(this.BtnVerUbicacionAdyacentes);
@@ -202,6 +202,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnTrazarGrafo);
             this.Controls.Add(this.gMapControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

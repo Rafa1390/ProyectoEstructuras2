@@ -165,6 +165,7 @@ namespace ProyectoEstructuras2
             {
                 cblOrigen.Items.Add(obj.Nombre);
             }
+            button1.Enabled = true;
         }
 
         private void CblDestino_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,52 +199,67 @@ namespace ProyectoEstructuras2
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            var key = cblOrigen.SelectedItem.ToString().ToLower();
-            string feedbackMessage;
-
-            if (!string.IsNullOrWhiteSpace(key))
+            if (!cblOrigen.Text.Equals(""))
             {
-                var nVertice = GestorGrafo.BuscarVertice(key);
+                var key = cblOrigen.SelectedItem.ToString().ToLower();
+                string feedbackMessage;
 
-                if (nVertice != null)
+                if (!string.IsNullOrWhiteSpace(key))
                 {
-                    feedbackMessage = "Las coordenadas de " + nVertice.Nombre + " son:\n " + nVertice.Latitud + ", " + nVertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(nVertice);
-                    SetLocationOnMap(nVertice.Latitud, nVertice.Longitud);
+                    var nVertice = GestorGrafo.BuscarVertice(key);
+
+                    if (nVertice != null)
+                    {
+                        feedbackMessage = "Las coordenadas de " + nVertice.Nombre + " son:\n " + nVertice.Latitud + ", " + nVertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(nVertice);
+                        SetLocationOnMap(nVertice.Latitud, nVertice.Longitud);
+                    }
+                    else
+                    {
+                        feedbackMessage = "Su busqueda no tuvo resultado.";
+                    }
                 }
                 else
                 {
-                    feedbackMessage = "Su busqueda no tuvo resultado.";
+                    feedbackMessage = "Ingrese un valor.";
                 }
+
+                MessageBox.Show(feedbackMessage, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                feedbackMessage = "Ingrese un valor.";
+                MessageBox.Show("No se ha seleccionado vertice de origen", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show(feedbackMessage, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void BtnVerUbicacionAdyacentes_Click(object sender, EventArgs e)
         {
-            var startPointKey = cblOrigen.SelectedItem.ToString().ToLower();
-
-            if (!string.IsNullOrWhiteSpace(startPointKey))
+            if (!cblOrigen.Text.Equals(""))
             {
-                var startPoint = GestorGrafo.BuscarVertice(startPointKey);
+                var startPointKey = cblOrigen.SelectedItem.ToString().ToLower();
 
-                if (startPoint != null)
+                if (!string.IsNullOrWhiteSpace(startPointKey))
                 {
-                    MessageBox.Show(startPoint.Arcos.ToPrint(), "Puntos adyacentes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var startPoint = GestorGrafo.BuscarVertice(startPointKey);
+
+                    if (startPoint != null)
+                    {
+                        MessageBox.Show(startPoint.Arcos.ToPrint(), "Puntos adyacentes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontro el vertice buscado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro el vertice buscado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por favor, ingrese la ubicacion origen", "Advertencia", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese la ubicacion origen", "Advertencia", MessageBoxButtons.OK);
+                MessageBox.Show("No se ha seleccionado vertice de origen", "Advertencia", MessageBoxButtons.OK);
             }
         }
+   
     }
 }

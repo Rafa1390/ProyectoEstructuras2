@@ -1,6 +1,5 @@
 ﻿using Logica.LogicaGrafo;
 using Logica.LogicaHash;
-using ProyectoEstructuras2;
 using System.Collections.Generic;
 
 
@@ -136,7 +135,6 @@ namespace Logica.ControladorGrafo
 
             //21
             nVer1 = new Vertice { Nombre = "Hospital la Catolica", Latitud = 9.950094, Longitud = -84.058953 };
-
             Vertices.Insertar(nVer1);
 
             //22
@@ -159,7 +157,7 @@ namespace Logica.ControladorGrafo
 
         private void InitListaArcos()
         {
-            var calculador = new Calculador();
+            var calculador = new ProyectoEstructuras2.Calculador();
             var listVertices = ObtenerVertices();
 
             //Arco 1
@@ -330,12 +328,47 @@ namespace Logica.ControladorGrafo
             arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
             startVertice.Arcos.Insertar(arco);
 
-            ////Arco 25
-            //startVertice = listVertices[24];
-            //endVertice = listVertices[25];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 25
+            startVertice = listVertices[0];
+            endVertice = listVertices[5];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
+
+            //Arco 26
+            startVertice = listVertices[0];
+            endVertice = listVertices[20];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
+
+            //Arco 27
+            startVertice = listVertices[0];
+            endVertice = listVertices[4];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
+
+            //Arco 28
+            startVertice = listVertices[21];
+            endVertice = listVertices[23];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
+
+            //Arco 29
+            startVertice = listVertices[6];
+            endVertice = listVertices[20];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
+
+            //Arco 30
+            startVertice = listVertices[12];
+            endVertice = listVertices[18];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
         }
     }
 }

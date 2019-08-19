@@ -1,8 +1,6 @@
-﻿using GMap.NET;
-using Logica.LogicaGrafo;
+﻿using Logica.LogicaGrafo;
 using Logica.LogicaHash;
 using ProyectoEstructuras2;
-using System.Collections;
 using System.Collections.Generic;
 
 
@@ -35,7 +33,7 @@ namespace Logica.ControladorGrafo
         {
             HashingTable hashtable = new HashingTable();
             List<Vertice> listaTemp = ObtenerVertices();
-            foreach(var vertice in listaTemp)
+            foreach (var vertice in listaTemp)
             {
                 if (!hashtable.ContainsKey(vertice.Nombre.ToLower()))
                 {
@@ -138,7 +136,7 @@ namespace Logica.ControladorGrafo
 
             //21
             nVer1 = new Vertice { Nombre = "Hospital la Catolica", Latitud = 9.950094, Longitud = -84.058953 };
-            
+
             Vertices.Insertar(nVer1);
 
             //22
@@ -164,173 +162,173 @@ namespace Logica.ControladorGrafo
             var calculador = new Calculador();
             var listVertices = ObtenerVertices();
 
-            ////Arco 1
-            //var startVertice = listVertices[0];
-            //var endVertice = listVertices[1];
-            //var km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //var arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 1
+            var startVertice = listVertices[0];
+            var endVertice = listVertices[1];
+            var km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            var arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 2
-            //startVertice = listVertices[1];
-            //endVertice = listVertices[2];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 2
+            startVertice = listVertices[1];
+            endVertice = listVertices[2];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 3
-            //startVertice = listVertices[2];
-            //endVertice = listVertices[3];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 3
+            startVertice = listVertices[2];
+            endVertice = listVertices[3];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 4
-            //startVertice = listVertices[3];
-            //endVertice = listVertices[4];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 4
+            startVertice = listVertices[3];
+            endVertice = listVertices[4];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 5
-            //startVertice = listVertices[4];
-            //endVertice = listVertices[5];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 5
+            startVertice = listVertices[4];
+            endVertice = listVertices[5];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 6
-            //startVertice = listVertices[5];
-            //endVertice = listVertices[6];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 6
+            startVertice = listVertices[5];
+            endVertice = listVertices[6];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 7
-            //startVertice = listVertices[6];
-            //endVertice = listVertices[7];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 7
+            startVertice = listVertices[6];
+            endVertice = listVertices[7];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 8
-            //startVertice = listVertices[7];
-            //endVertice = listVertices[8];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 8
+            startVertice = listVertices[7];
+            endVertice = listVertices[8];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 9
-            //startVertice = listVertices[8];
-            //endVertice = listVertices[9];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 9
+            startVertice = listVertices[8];
+            endVertice = listVertices[9];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 10
-            //startVertice = listVertices[9];
-            //endVertice = listVertices[10];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 10
+            startVertice = listVertices[9];
+            endVertice = listVertices[10];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 11
-            //startVertice = listVertices[10];
-            //endVertice = listVertices[11];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 11
+            startVertice = listVertices[10];
+            endVertice = listVertices[11];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 12
-            //startVertice = listVertices[11];
-            //endVertice = listVertices[12];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 12
+            startVertice = listVertices[11];
+            endVertice = listVertices[12];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 13
-            //startVertice = listVertices[12];
-            //endVertice = listVertices[13];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 13
+            startVertice = listVertices[12];
+            endVertice = listVertices[13];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 14
-            //startVertice = listVertices[13];
-            //endVertice = listVertices[14];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 14
+            startVertice = listVertices[13];
+            endVertice = listVertices[14];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 15
-            //startVertice = listVertices[14];
-            //endVertice = listVertices[15];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 15
+            startVertice = listVertices[14];
+            endVertice = listVertices[15];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 16
-            //startVertice = listVertices[15];
-            //endVertice = listVertices[16];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 16
+            startVertice = listVertices[15];
+            endVertice = listVertices[16];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 17
-            //startVertice = listVertices[16];
-            //endVertice = listVertices[17];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 17
+            startVertice = listVertices[16];
+            endVertice = listVertices[17];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 18
-            //startVertice = listVertices[17];
-            //endVertice = listVertices[18];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 18
+            startVertice = listVertices[17];
+            endVertice = listVertices[18];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 19
-            //startVertice = listVertices[18];
-            //endVertice = listVertices[19];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 19
+            startVertice = listVertices[18];
+            endVertice = listVertices[19];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 20
-            //startVertice = listVertices[19];
-            //endVertice = listVertices[20];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 20
+            startVertice = listVertices[19];
+            endVertice = listVertices[20];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 21
-            //startVertice = listVertices[20];
-            //endVertice = listVertices[21];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 21
+            startVertice = listVertices[20];
+            endVertice = listVertices[21];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 22
-            //startVertice = listVertices[21];
-            //endVertice = listVertices[22];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 22
+            startVertice = listVertices[21];
+            endVertice = listVertices[22];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 23
-            //startVertice = listVertices[22];
-            //endVertice = listVertices[23];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 23
+            startVertice = listVertices[22];
+            endVertice = listVertices[23];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
-            ////Arco 24
-            //startVertice = listVertices[23];
-            //endVertice = listVertices[24];
-            //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
-            //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
-            //startVertice.Arcos.Insertar(arco);
+            //Arco 24
+            startVertice = listVertices[23];
+            endVertice = listVertices[24];
+            km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
+            arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
+            startVertice.Arcos.Insertar(arco);
 
             ////Arco 25
             //startVertice = listVertices[24];
@@ -338,9 +336,6 @@ namespace Logica.ControladorGrafo
             //km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
             //arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
             //startVertice.Arcos.Insertar(arco);
-
-
-
         }
     }
 }

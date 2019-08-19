@@ -1,10 +1,4 @@
-﻿using GMap.NET;
-using GMap.NET.MapProviders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Device.Location;
 
 namespace ProyectoEstructuras2
 {
@@ -12,11 +6,10 @@ namespace ProyectoEstructuras2
     {
         public double CalculateKilometers(double startPointLat, double startPointLng, double endPointLat, double endPointLng)
         {
-            var startPoint = new PointLatLng { Lat = startPointLat, Lng = startPointLng };
-            var endPoint = new PointLatLng { Lat = endPointLat, Lng = endPointLng };
-          //  var route = GoogleMapProvider.Instance.GetRoute(startPoint, endPoint, false, false, 14);
-         //   var km = route.Distance;
-            return 100;
+            var geoStartPoint = new GeoCoordinate(startPointLat, startPointLng);
+            var geoEndPoint = new GeoCoordinate(endPointLat, endPointLng);
+            var distanceKm = geoStartPoint.GetDistanceTo(geoEndPoint) / 1000;
+            return distanceKm;
         }
     }
 }

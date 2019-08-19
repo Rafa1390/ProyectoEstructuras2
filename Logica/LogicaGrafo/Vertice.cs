@@ -10,11 +10,12 @@
 
         public Vertice()
         {
-
+            Arcos = new ListaArco();
         }
 
         public Vertice(string nNombre, double nLat, double nLong)
         {
+            Arcos = new ListaArco();
             Nombre = nNombre;
             Latitud = nLat;
             Longitud = nLong;

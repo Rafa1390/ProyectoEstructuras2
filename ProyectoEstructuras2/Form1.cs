@@ -1,16 +1,15 @@
-using System;
-using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using Logica.ControladorGrafo;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Collections;
-using Logica.LogicaHash;
 using Logica.LogicaGrafo;
+using Logica.LogicaHash;
+using System;
+using System.Collections.Generic;
 using System.Device.Location;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ProyectoEstructuras2
 {
@@ -65,12 +64,12 @@ namespace ProyectoEstructuras2
             GeoCoordinate coordenadasPrimerVertice = new GeoCoordinate(vertice.Latitud, vertice.Longitud);
             double lowestDistance = 9999999999;
             var verticesList = GestorGrafo.ObtenerVertices();
-            foreach(Vertice vertice1 in verticesList)
+            foreach (Vertice vertice1 in verticesList)
             {
                 Vertice temp = vertice1;
                 while (temp != null)
                 {
-                    if(temp.Nombre.ToLower()  != vertice.Nombre.ToLower())
+                    if (temp.Nombre.ToLower() != vertice.Nombre.ToLower())
                     {
                         GeoCoordinate c2 = new GeoCoordinate(temp.Latitud, temp.Longitud);
                         double distanceInKm = coordenadasPrimerVertice.GetDistanceTo(c2) / 1000;
@@ -185,11 +184,11 @@ namespace ProyectoEstructuras2
         {
             lblSearchOutput.Text = "";
             string input_value = txtSearch.Text.ToLower();
-            if(input_value.Length > 0)
+            if (input_value.Length > 0)
             {
                 HashingTable table = GestorGrafo.ObtenerHashTable();
                 var output = table.Get(input_value);
-                if(output != null)
+                if (output != null)
                 {
                     Vertice vertice = (Vertice)output;
                     lblSearchOutput.Text = "Las coordenadas de " + vertice.Nombre + " son:\n " + vertice.Latitud + ", " + vertice.Longitud + ". " + "\n" + GetNearestLocationsFromVertice(vertice);

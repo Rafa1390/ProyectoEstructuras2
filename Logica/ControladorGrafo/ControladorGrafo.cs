@@ -416,7 +416,7 @@ namespace Logica.ControladorGrafo
                 if (smallest.Nombre == finish.Nombre)
                 {
                     path = new List<Vertice>();
-                    while (previous.ContainsValue(smallest))
+                    while (previous.ContainsKey(smallest.Nombre))
                     {
                         path.Add(smallest);
                         smallest = previous[smallest.Nombre];

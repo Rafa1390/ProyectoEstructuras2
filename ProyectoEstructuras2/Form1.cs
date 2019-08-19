@@ -305,7 +305,7 @@ namespace ProyectoEstructuras2
                     destino.Equals(origen);
                 }
                   
-                }
+                
 
             }
         }

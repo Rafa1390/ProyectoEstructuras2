@@ -283,6 +283,7 @@ namespace ProyectoEstructuras2
                     }
 
                     var listVertices = GestorGrafo.Shortest_path(verticeOrigen, verticeDestino);
+                    Ruta(listVertices);
                 }
             }
 
@@ -290,20 +291,17 @@ namespace ProyectoEstructuras2
 
         private void Ruta(List<Vertice> list)
         {
+            var vertice = list[0];
             var destino = new PointLatLng();
-            foreach (var obj in list)
+            var origen = new PointLatLng(list[0].Latitud,list[0].Longitud);
+            destino = new PointLatLng(vertice.Siguiente.Latitud, vertice.Siguiente.Longitud);
+            
+            while(vertice.Siguiente != null)
             {
-                var origen = new PointLatLng(obj.Latitud, obj.Longitud);
-
-                if(destino == null)
-                {
-                    destino.Equals(origen);
-                }
-                else
-                {
-                    TrazarGrafo(origen, destino);
-                    destino.Equals(origen);
-                }
+                TrazarGrafo(origen, destino);
+                origen = destino;
+                destino = new PointLatLng(vertice.Siguiente.Latitud,vertice.Siguiente.Longitud);
+                vertice = vertice.Siguiente;
             }
         }
     }

@@ -71,7 +71,7 @@ namespace Logica.LogicaGrafo
             while (aux != null)
             {
                 print.Append("\nDestino: " + aux.VerticeDestino.Nombre);
-                print.Append("\nDistancia: " + aux.Kilometros);
+                print.Append("\nDistancia: " + aux.Kilometros + "\n");
                 aux = aux.Siguiente;
             }
 

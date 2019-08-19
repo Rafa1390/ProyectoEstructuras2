@@ -260,6 +260,48 @@ namespace ProyectoEstructuras2
                 MessageBox.Show("No se ha seleccionado vertice de origen", "Advertencia", MessageBoxButtons.OK);
             }
         }
-   
+
+        private void BtnRutaMin_Click(object sender, EventArgs e)
+        {
+            var verticeOrigen = new Vertice();
+            var verticeDestino = new Vertice();
+            if (!cblOrigen.Text.Equals("") && !cblDestino.Text.Equals(""))
+            {
+                if (!cblOrigen.Text.Equals(cblDestino.Text))
+                {
+                    var vertices = GestorGrafo.ObtenerVertices();
+                    foreach (var obj in vertices)
+                    {
+                        if (obj.Nombre.Equals(cblOrigen.Text))
+                        {
+                            verticeOrigen = obj;
+                        }
+                        if (obj.Nombre.Equals(cblDestino.Text))
+                        {
+                            verticeDestino = obj;
+                        }
+                    }
+
+                    var listVertices = GestorGrafo.Shortest_path(verticeOrigen, verticeDestino);
+                }
+            }
+
+        }
+
+        private void Ruta(List<Vertice> list)
+        {
+            foreach (var obj in list)
+            {
+                var origen = new PointLatLng(obj.Latitud, obj.Longitud);
+
+                while (obj.Arcos.Cabeza != null)
+                {
+                    var destino = new PointLatLng(obj.Arcos.Cabeza.VerticeDestino.Latitud, obj.Arcos.Cabeza.VerticeDestino.Longitud);
+                    obj.Arcos.Cabeza = obj.Arcos.Cabeza.Siguiente;
+                    TrazarGrafo(origen, destino);
+                }
+
+            }
+        }
     }
 }

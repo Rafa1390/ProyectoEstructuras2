@@ -38,8 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblSearchOutput = new System.Windows.Forms.Label();
             this.BtnVerUbicacionAdyacentes = new System.Windows.Forms.Button();
-            this.BtnRutaMinima = new System.Windows.Forms.Button();
             this.BtnRutaMaxima = new System.Windows.Forms.Button();
+            this.btnRutaMin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -162,18 +162,6 @@
             this.BtnVerUbicacionAdyacentes.UseVisualStyleBackColor = true;
             this.BtnVerUbicacionAdyacentes.Click += new System.EventHandler(this.BtnVerUbicacionAdyacentes_Click);
             // 
-            // BtnRutaMinima
-            // 
-            this.BtnRutaMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.BtnRutaMinima.Location = new System.Drawing.Point(1284, 502);
-            this.BtnRutaMinima.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnRutaMinima.Name = "BtnRutaMinima";
-            this.BtnRutaMinima.Size = new System.Drawing.Size(272, 62);
-            this.BtnRutaMinima.TabIndex = 23;
-            this.BtnRutaMinima.Text = "Ver ruta minima";
-            this.BtnRutaMinima.UseVisualStyleBackColor = true;
-            this.BtnRutaMinima.Click += new System.EventHandler(this.BtnRutaMinima_Click);
-            // 
             // BtnRutaMaxima
             // 
             this.BtnRutaMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
@@ -185,13 +173,25 @@
             this.BtnRutaMaxima.Text = "Ver ruta maxima";
             this.BtnRutaMaxima.UseVisualStyleBackColor = true;
             // 
+            // btnRutaMin
+            // 
+            this.btnRutaMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnRutaMin.Location = new System.Drawing.Point(1284, 502);
+            this.btnRutaMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRutaMin.Name = "btnRutaMin";
+            this.btnRutaMin.Size = new System.Drawing.Size(272, 62);
+            this.btnRutaMin.TabIndex = 25;
+            this.btnRutaMin.Text = "Ver ruta minima";
+            this.btnRutaMin.UseVisualStyleBackColor = true;
+            this.btnRutaMin.Click += new System.EventHandler(this.BtnRutaMin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1576, 749);
+            this.Controls.Add(this.btnRutaMin);
             this.Controls.Add(this.BtnRutaMaxima);
-            this.Controls.Add(this.BtnRutaMinima);
             this.Controls.Add(this.BtnVerUbicacionAdyacentes);
             this.Controls.Add(this.lblSearchOutput);
             this.Controls.Add(this.button1);
@@ -225,8 +225,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSearchOutput;
         private System.Windows.Forms.Button BtnVerUbicacionAdyacentes;
-        private System.Windows.Forms.Button BtnRutaMinima;
         private System.Windows.Forms.Button BtnRutaMaxima;
+        private System.Windows.Forms.Button btnRutaMin;
     }
 }
 

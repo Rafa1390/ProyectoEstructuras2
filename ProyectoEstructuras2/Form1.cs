@@ -120,7 +120,6 @@ namespace ProyectoEstructuras2
             List<PointLatLng> direcciones;
             List<PointLatLng> otrasRutas;
             direcciones = new List<PointLatLng>();
-            otrasRutas = new List<PointLatLng>(AgregarRutas());
             var vertices = GestorGrafo.ObtenerVertices();
 
             foreach (var obj in vertices)
@@ -128,36 +127,12 @@ namespace ProyectoEstructuras2
                 var nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
                 direcciones.Add(nPoint);
             }
-
-            direcciones.AddRange(otrasRutas);
             GMapRoute r = new GMapRoute(direcciones, "routes");
             GMapOverlay routesOverlay = new GMapOverlay("routes");
             routesOverlay.Routes.Add(r);
             gMapControl1.Overlays.Add(routesOverlay);
             r.Stroke.Width = 2;
             r.Stroke.Color = Color.Coral;
-        }
-
-        /// <summary>
-        /// Agrega otras rutas para trazar en el mapa
-        /// </summary>
-        public List<PointLatLng> AgregarRutas()
-        {
-            List<PointLatLng> direcciones = new List<PointLatLng>();
-            var vertices = GestorGrafo.ObtenerVertices();
-            var obj = vertices[24];
-            var nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
-            direcciones.Add(nPoint);
-            obj = vertices[19];
-            nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
-            direcciones.Add(nPoint);
-            obj = vertices[4];
-            nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
-            direcciones.Add(nPoint);
-            obj = vertices[1];
-            nPoint = new PointLatLng(obj.Latitud, obj.Longitud);
-            direcciones.Add(nPoint);
-            return direcciones;
         }
 
         private void CblOrigen_SelectedIndexChanged(object sender, EventArgs e)

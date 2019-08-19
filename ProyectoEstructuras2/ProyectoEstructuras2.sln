@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoEstructuras2", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "..\Logica\Logica.csproj", "{C68E0715-CFA2-41D7-93C5-6256A61C182D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conector", "..\Conector\Conector.csproj", "{29713C93-71EF-4A1F-B907-6F9CDB08209C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C68E0715-CFA2-41D7-93C5-6256A61C182D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C68E0715-CFA2-41D7-93C5-6256A61C182D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C68E0715-CFA2-41D7-93C5-6256A61C182D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29713C93-71EF-4A1F-B907-6F9CDB08209C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29713C93-71EF-4A1F-B907-6F9CDB08209C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29713C93-71EF-4A1F-B907-6F9CDB08209C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29713C93-71EF-4A1F-B907-6F9CDB08209C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

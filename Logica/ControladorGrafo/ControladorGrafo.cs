@@ -1,4 +1,5 @@
-﻿using Logica.LogicaGrafo;
+﻿using System;
+using Logica.LogicaGrafo;
 using Logica.LogicaHash;
 using System.Collections.Generic;
 
@@ -380,6 +381,67 @@ namespace Logica.ControladorGrafo
             km = calculador.CalculateKilometers(startVertice.Latitud, startVertice.Longitud, endVertice.Latitud, endVertice.Longitud);
             arco = new Arco { VerticeDestino = endVertice, Kilometros = km };
             startVertice.Arcos.Insertar(arco);
+        }
+
+        public List<Vertice> Shortest_path(Vertice start, Vertice finish)
+        {
+            var evertices = ObtenerVertices();
+            var previous = new Dictionary<string, Vertice>();
+            var distances = new Dictionary<Vertice, int>();
+            var vers = new List<Vertice>();
+
+            List<Vertice> path = null;
+
+            for (var i =0; i< evertices.Count; i++)
+            {
+                if (evertices[i].Nombre == start.Nombre)
+                {
+                    distances[evertices[i]] = 0;
+                }
+                else
+                {
+                    distances[evertices[i]] = int.MaxValue;
+                }
+
+                vers.Add(evertices[i]);
+            }
+
+            while (vers.Count != 0)
+            {
+                vers.Sort((x, y) => distances[x] - distances[y]);
+
+                var smallest = vers[0];
+                vers.Remove(smallest);
+
+                if (smallest.Nombre == finish.Nombre)
+                {
+                    path = new List<Vertice>();
+                    while (previous.ContainsValue(smallest))
+                    {
+                        path.Add(smallest);
+                        smallest = previous[smallest.Nombre];
+                    }
+
+                    break;
+                }
+
+                if (distances[smallest] == int.MaxValue)
+                {
+                    break;
+                }
+
+                foreach (var neighbor in evertices)
+                {
+                    var alt = distances[smallest] + neighbor.Arcos.ToList()[0].Kilometros;
+                    if (alt < distances[neighbor])
+                    {
+                        distances[neighbor] = (int)alt;
+                        previous[neighbor.Nombre] = smallest;
+                    }
+                }
+            }
+
+            return path;
         }
     }
 }

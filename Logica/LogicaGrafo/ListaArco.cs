@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Logica.LogicaGrafo
 {
@@ -76,6 +77,20 @@ namespace Logica.LogicaGrafo
             }
 
             return print.ToString();
+        }
+
+        public List<Arco> ToList()
+        {
+            var lista = new List<Arco>();
+            var aux = Cabeza;
+
+            while (aux != null)
+            {
+                lista.Add(aux);
+                aux = aux.Siguiente;
+            }
+
+            return lista;
         }
     }
 }

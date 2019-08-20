@@ -385,30 +385,32 @@ namespace Logica.ControladorGrafo
 
         public List<Vertice> Shortest_path(Vertice start, Vertice finish)
         {
-            var evertices = ObtenerVertices();
+            var evertices = ConvertList(ObtenerVertices());
             var previous = new Dictionary<string, Vertice>();
-            var distances = new Dictionary<Vertice, int>();
+            var distances = new Dictionary<string, double>();
             var vers = new List<Vertice>();
 
             List<Vertice> path = null;
 
-            for (var i =0; i< evertices.Count; i++)
+            foreach (var v in evertices)
             {
-                if (evertices[i].Nombre == start.Nombre)
+                if (v.Key == start.Nombre)
                 {
-                    distances[evertices[i]] = 0;
+                    distances.Add(v.Key, 0);
                 }
                 else
                 {
-                    distances[evertices[i]] = int.MaxValue;
+                    distances.Add(v.Key, double.MaxValue);
                 }
 
-                vers.Add(evertices[i]);
+                vers.Add(v.Value);
             }
 
             while (vers.Count != 0)
             {
-                vers.Sort((x, y) => distances[x] - distances[y]);
+                
+                vers.Sort((x, y) => distances[x.Nombre].CompareTo(distances[y.Nombre]));
+                
 
                 var smallest = vers[0];
                 vers.Remove(smallest);
@@ -425,23 +427,40 @@ namespace Logica.ControladorGrafo
                     break;
                 }
 
-                if (distances[smallest] == int.MaxValue)
+                if (distances[smallest.Nombre].Equals(double.MaxValue))
                 {
                     break;
                 }
 
-                foreach (var neighbor in evertices)
+                foreach(var neighbor in evertices[smallest.Nombre].Arcos.ToList())
                 {
-                    var alt = distances[smallest] + neighbor.Arcos.ToList()[0].Kilometros;
-                    if (alt < distances[neighbor])
+
+                    var alt = distances[smallest.Nombre] + neighbor.Kilometros;
+                    if (alt < distances[smallest.Siguiente.Nombre])
                     {
-                        distances[neighbor] = (int)alt;
-                        previous[neighbor.Nombre] = smallest;
+                        distances[smallest.Siguiente.Nombre] = alt;
+                        previous[smallest.Siguiente.Nombre] = smallest;
                     }
+
                 }
             }
 
             return path;
+
         }
+
+        public Dictionary<string, Vertice> ConvertList(List<Vertice> v)
+        {
+            var ht = new Dictionary<string, Vertice>();
+            var evertices = ObtenerVertices();
+            
+            foreach (var e in evertices)
+            {
+                ht.Add(e.Nombre, e);
+            }
+
+            return ht;
+        }
+        
     }
 }
